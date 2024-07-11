@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "set HTTPS=true && set SSL_CRT_FILE=C:/Windows/System32/cert.crt&&set SSL_KEY_FILE=C:/Windows/System32/cert.key&&react-scripts start"
   },
   "dependencies": {
     "@emotion/react": "latest",
@@ -14,7 +15,8 @@
     "@mui/icons-material": "next",
     "@mui/material": "next",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "latest",
