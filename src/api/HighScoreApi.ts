@@ -5,13 +5,13 @@ import * as React from 'react';
 class HighScoreApi {
 
 
-  async fetchHighscores(url: string): Promise<Highscore[]> {
-    console.log("fetchHighscores");
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("data: ", data);
-    return data;
-  }
+  // async fetchHighscores(url: string): Promise<Highscore[]> {
+  //   console.log("fetchHighscores");
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   console.log("data: ", data);
+  //   return data;
+  // }
 
   async get(requestOptions?: { headers: Headers; }): Promise<Highscore[] | String | any> {
 
@@ -32,7 +32,7 @@ class HighScoreApi {
 
     var data = await response.json();
     console.log(data);
-    console.log(response);
+    // console.log(response);
     return data;
   }
 }
