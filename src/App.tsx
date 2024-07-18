@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { CardMedia, Grid } from '@mui/material';
+import { Button, CardMedia, Grid } from '@mui/material';
 import HighScoreApi from './api/HighScoreApi';
 import MainNavBar from './Components/MainNavBar';
 import Home from './Views/Home';
@@ -18,18 +18,22 @@ export default function App() {
         alignItems="center"
         justifyContent="center">
         <Grid item alignContent={'center'}>
-          <CardMedia
-            component="img"
-            height="500"
-            image={`/images/logo.png`}
-            alt={"name"}
-            title={"title"}
-            sx={{ padding: "0em 0em 0 0em" }} />
+          <Button onClick={() => {
+            // alert('clicked');
+          }}>
+            <CardMedia
+              component="img"
+              height="500"
+              image={`/images/logo.png`}
+              alt={"name"}
+              title={"title"}
+              sx={{ padding: "0em 0em 0 0em" }} />
+          </Button>
         </Grid>
       </Grid>
-    <Box>
-      <ScoresTable />
-    </Box >
+      <Box>
+        {/* <ScoresTable /> */}
+      </Box >
     </Box>
   );
 }
