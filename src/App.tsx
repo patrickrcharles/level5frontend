@@ -1,9 +1,8 @@
 import Box from '@mui/material/Box';
-import { Button, CardMedia, Grid } from '@mui/material';
+import { Button, CardMedia, Grid, Link } from '@mui/material';
 import HighScoreApi from './api/HighScoreApi';
-import MainNavBar from './Components/MainNavBar';
-import Home from './Views/Home';
 import ScoresTable from './Components/ScoresTable';
+import MainNavBar from './Components/MainNavBar';
 
 export default function App() {
 
@@ -13,14 +12,18 @@ export default function App() {
     <Box sx={{ flexGrow: 1 }}>
       {/* <MainNavBar /> */}
       <Grid container sx={{ padding: "1em 1em 0 1em" }}
-        spacing={0}
+        spacing={2}
         direction="column"
         alignItems="center"
         justifyContent="center">
         <Grid item alignContent={'center'}>
-          <Button onClick={() => {
+          {/* <Button onClick={() => {
             // alert('clicked');
-          }}>
+          }}> */}
+            <Link href= 
+                    "/Home"> 
+                    Visit 
+                </Link> 
             <CardMedia
               component="img"
               height="500"
@@ -28,12 +31,13 @@ export default function App() {
               alt={"name"}
               title={"title"}
               sx={{ padding: "0em 0em 0 0em" }} />
-          </Button>
+          {/* </Button> */}
         </Grid>
       </Grid>
-      <Box>
-        {/* <ScoresTable /> */}
-      </Box >
+      {/* <Box>
+        <ScoresTable />
+      </Box > */}
+      {/* <MainNavBar/> */}
     </Box>
   );
 }

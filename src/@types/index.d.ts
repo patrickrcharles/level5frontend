@@ -1,4 +1,3 @@
-type SourceOfRepair = 'MBB' | 'MAB' | 'COMM' | 'DMISA';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type T = any;
 

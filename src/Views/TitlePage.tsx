@@ -10,6 +10,7 @@ import ButtonLink from '../Components/ButtonLink';
 import SearchBar from '../Components/SearchBar';
 import DataTable from '../Components/DataTable';
 import HighScoreApi from '../api/HighScoreApi';
+import MainNavBar from '../Components/MainNavBar';
 
 const columns: GridColDef[] = [
     {
@@ -70,6 +71,7 @@ export default async function Home() {
           setLoading={setLoading}
         />
       </Grid>
+      <MainNavBar/>
     </Content>
   );
 }
@@ -139,4 +141,11 @@ function getSearchProperty(filter: string) {
   return property;
 }
 
-
+function GetPinIcon({ param }: { param: { value: boolean } }) {
+  const theme = useTheme();
+  let color = theme.palette.mode === 'light' ? 'black' : 'gray';
+  if (param && param.value) {
+    color = 'red';
+  }
+  return <PushPinIcon htmlColor={color} />;
+}

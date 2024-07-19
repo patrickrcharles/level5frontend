@@ -25,3 +25,7 @@ enum Mode {
     ArcadeMode = 98,
     FreePlay = 99,
   }
+
+  enum Level{ }
+
+  enum Character{ }

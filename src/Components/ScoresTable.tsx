@@ -21,7 +21,7 @@ const ScoresTable = () => {
     fetch('http://api.sweatthis.com/api/highscores')
       .then((data) => data.json())
       .then((data) => setTableData(data))
-
+    console.log(tableData);
   }, [])
   const columns = [
     { field: 'date', headerName: 'date', flex: 1 }, { field: 'version', headerName: 'version', flex: 1 },
@@ -49,7 +49,7 @@ const ScoresTable = () => {
 
   return (
     <Paper square={false}>
-      <Grid container xs={12}>
+      <Grid item container xs={12}>
         <Grid item xs={12}>
           <Box sx={{ height: 600, width: '100%' }}>
             <DataGrid
