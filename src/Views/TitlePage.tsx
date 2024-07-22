@@ -20,7 +20,7 @@ const columns: GridColDef[] = [
     { field: 'username', headerName: 'user name', flex: 1 },
   ];
   
-export default async function Home() {
+export default async function TitlePage() {
 
   const loaderData = await fetchHighscores(); 
 //   const loaderData =  HighScoreApi.get();
