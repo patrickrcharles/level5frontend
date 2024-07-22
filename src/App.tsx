@@ -3,6 +3,9 @@ import { Button, CardMedia, Grid, Link } from '@mui/material';
 import HighScoreApi from './api/HighScoreApi';
 import ScoresTable from './Components/ScoresTable';
 import MainNavBar from './Components/MainNavBar';
+import ReactPlayer from 'react-player';
+import dbPlay from '/video/db_playGame.mp4'
+import dbFootage from '/video/db_footage.mp4'
 
 export default function App() {
 
@@ -20,18 +23,22 @@ export default function App() {
           {/* <Button onClick={() => {
             // alert('clicked');
           }}> */}
-            <Link href= 
-                    "/Home"> 
-                    Visit 
-                </Link> 
-            <CardMedia
-              component="img"
-              height="500"
-              image={`/images/logo.png`}
-              alt={"name"}
-              title={"title"}
-              sx={{ padding: "0em 0em 0 0em" }} />
+          <Link href=
+            "/Home">
+            Visit
+          </Link>
+          <CardMedia
+            component="img"
+            height="500"
+            image={`/images/logo.png`}
+            alt={"name"}
+            title={"title"}
+            sx={{ padding: "0em 0em 0 0em" }} />
           {/* </Button> */}
+        </Grid>
+        <Grid>
+          <ReactPlayer controls autostart autoPlay url={dbPlay} />
+          <ReactPlayer controls autostart autoPlay url={dbFootage} />
         </Grid>
       </Grid>
       {/* <Box>
