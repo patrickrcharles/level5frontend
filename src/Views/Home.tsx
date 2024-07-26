@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Chip, Grid, useTheme } from '@mui/material';
+import { Box, Button, ButtonGroup, Chip, Grid, Typography, useTheme } from '@mui/material';
 import { GridColDef, GridPaginationModel } from '@mui/x-data-grid';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -10,20 +10,23 @@ import ButtonLink from '../Components/ButtonLink';
 import SearchBar from '../Components/SearchBar';
 import DataTable from '../Components/DataTable';
 import HighScoreApi from '../api/HighScoreApi';
+import ReactPlayer from 'react-player';
+import dbPlay from '/video/db_playGame.mp4'
+import dbFootage from '/video/db_footage.mp4'
+import ScoresTable from '../Components/ScoresTable';
+import MainNavBar from '../Components/MainNavBar';
 
 const columns: GridColDef[] = [
-    {
-      field: 'id',
-    },
-    { field: 'userid', headerName: 'user id', flex: 1 },
-    { field: 'username', headerName: 'user name', flex: 1 },
-  ];
-  
-export default async function Home() {
+  {
+    field: 'id',
+  },
+  { field: 'userid', headerName: 'user id', flex: 1 },
+  { field: 'username', headerName: 'user name', flex: 1 },
+];
 
-  const loaderData = await fetchHighscores(); 
-//   const loaderData =  HighScoreApi.get();
-  console.log("--------", loaderData);
+export default function Home() {
+
+  const loaderData = fetchHighscores();
   const navigate = useNavigate();
   const params = useParams();
   const [loading, setLoading] = useState(true);
@@ -44,39 +47,40 @@ export default async function Home() {
   };
 
   return (
-    <Content
-      pageName="Recent Scores"
-      headerComponentRight={
-        <>
-          <ButtonLink to="mwslin/new" variant="contained" sx={{ height: '3.5vh' }}>
-            Add Mwslin
-          </ButtonLink>
-        </>
-      }
-    >
-      <Grid item xs={12}>
-        <SearchBar
-          placeHolder="Search for Game mode, character, level, etc"
-          onInput={debounce(searchSummaries, 250)}
-        />
-      </Grid>
 
-      <Grid item xs={12} sx={{ height: '75vh' }}>
-        <DataTable
-          columns={columns}
-          data={loaderData}
-          onPaginationChange={debounce(onPaginationChange, 250)}
-          loading={loading}
-          setLoading={setLoading}
-        />
+    <>
+      <Grid>
+        <MainNavBar />
+        {/* <ReactPlayer controls autostart autoPlay url={dbPlay} />
+      <ReactPlayer controls autostart autoPlay url={dbFootage} /> */}
       </Grid>
-    </Content>
+      <Grid container xs={12}>
+        {/* <Grid item xs={1} spacing={0}>
+          <Typography> Server Status</Typography>
+        </Grid>
+        <Grid item xs={1} spacing={2}>
+          <Chip label='Down' color="error" />
+        </Grid> */}
+
+        <Grid item xs={1} spacing={2}>
+          <Typography> Current Version</Typography>
+        </Grid>
+        <Grid item xs={1} spacing={2}>
+          <Chip label='4.0.0' color="success" />
+        </Grid>
+      </Grid>
+      <Box>
+        <ScoresTable />
+      </Box>
+
+    </>
+
   );
 }
 
 async function fetchHighscores(this: any) {
-    return HighScoreApi.get();
-  }
+  return HighScoreApi.get();
+}
 
 function getUrlWithParams({
   params,

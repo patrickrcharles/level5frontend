@@ -1,8 +1,8 @@
-import { Button, ButtonGroup, Chip, Grid, useTheme } from '@mui/material';
+import { Box, Button, ButtonGroup, CardMedia, Chip, Grid, useTheme } from '@mui/material';
 import { GridColDef, GridPaginationModel } from '@mui/x-data-grid';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Params, useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { Link, Params, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { useCallback, useState } from 'react';
 import Content from '../Components/Content';
@@ -20,9 +20,9 @@ const columns: GridColDef[] = [
     { field: 'username', headerName: 'user name', flex: 1 },
   ];
   
-export default async function TitlePage() {
+export default function Title() {
 
-  const loaderData = await fetchHighscores(); 
+  const loaderData = fetchHighscores(); 
 //   const loaderData =  HighScoreApi.get();
   console.log("--------", loaderData);
   const navigate = useNavigate();
@@ -45,34 +45,39 @@ export default async function TitlePage() {
   };
 
   return (
-    <Content
-      pageName="Recent Scores"
-      headerComponentRight={
-        <>
-          <ButtonLink to="mwslin/new" variant="contained" sx={{ height: '3.5vh' }}>
-            Add Mwslin
-          </ButtonLink>
-        </>
-      }
-    >
-      <Grid item xs={12}>
-        <SearchBar
-          placeHolder="Search for Game mode, character, level, etc"
-          onInput={debounce(searchSummaries, 250)}
-        />
+    <Box sx={{ flexGrow: 1 }}>
+      {/* <MainNavBar /> */}
+      <Grid container sx={{ padding: "1em 1em 0 1em" }}
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        justifyContent="center">
+        <Grid item alignContent={'center'}>
+          <Link to="/level5">
+          {/* <Button onClick={() => {
+            // alert('clicked');
+          }}> */}
+          <CardMedia
+            component="img"
+            height="500"
+            image={`/images/logo.png`}
+            alt={"name"}
+            title={"title"}
+            sx={{ padding: "0em 0em 0 0em" }} />
+          {/* </Button> */}
+          </Link>
+        </Grid>
+        {/* <MainNavBar/> */}
+        {/* <Grid>
+          <ReactPlayer controls autostart autoPlay url={dbPlay} />
+          <ReactPlayer controls autostart autoPlay url={dbFootage} />
+        </Grid> */}
       </Grid>
-
-      <Grid item xs={12} sx={{ height: '75vh' }}>
-        <DataTable
-          columns={columns}
-          data={loaderData}
-          onPaginationChange={debounce(onPaginationChange, 250)}
-          loading={loading}
-          setLoading={setLoading}
-        />
-      </Grid>
-      <MainNavBar/>
-    </Content>
+      {/* <Box>
+        <ScoresTable />
+      </Box >  */}
+      
+    </Box>
   );
 }
 

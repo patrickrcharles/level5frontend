@@ -20,65 +20,22 @@ const menus: DropMenuType[] = [
         children: [
             {
                 name: 'Recent Scores',
-                to: '/maintenance/tamcn-list'
+                to: '/level5/recent'
             },
             {
                 name: 'High Scores',
-                to: '/maintenance/nsn-list'
+                to: '/level5/high'
             },
             {
                 name: 'All Time Scores',
-                to: '/maintenance/mwslin-archive'
+                to: '/level5/alltime'
             },
             {
                 name: 'All Time Leaders',
-                to: '/maintenance/mwslin-archive'
+                to: '/level5/alltimeleaders'
             }
         ]
     },
-    {
-        id: 'Users',
-        children: [
-            {
-                name: 'TAMCN Summary',
-                to: '/report/tamcn-summary'
-            },
-        ]
-    },
-    // {
-    //     id: 'Admin',
-    //     children: [
-    //         {
-    //             name: 'Account Management',
-    //             to: '/admin/account-management'
-    //         },
-    //         {
-    //             name: 'File Management',
-    //             to: '/admin/file-management'
-    //         },
-    //         {
-    //             name: 'System Configuration',
-    //             to: '/admin/system-configuration'
-    //         },
-    //         {
-    //             name: 'MWSLIN Archive',
-    //             to: '/admin/mwslin-archive'
-    //         },
-    //         {
-    //             name: 'Send Email',
-    //             to: '/admin/send-email'
-    //         }
-    //     ]
-    // },
-    {
-        id: 'Help',
-        children: [
-            {
-                name: 'About',
-                to: '/help/update-history'
-            }
-        ]
-    }
 ];
 
 export default function MainNavBar() {
@@ -97,12 +54,24 @@ export default function MainNavBar() {
                 >
                 </Box>
                 <ButtonLink to="/" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                    Level 5
+                    Title
                 </ButtonLink>
                 {
                     menus.map((item) => (
                         <DropdownBtn key={uuidv4()} menu={item} sx={{ fontWeight: 'bolder', fontSize: '1.1em' }} />
                     ))}
+                <ButtonLink to="/modes" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                    Modes
+                </ButtonLink>
+                <ButtonLink to="/characters" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                    Characters
+                </ButtonLink>
+                <ButtonLink to="/levels" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                    Levels
+                </ButtonLink>
+                <ButtonLink to="/level5/drblood" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                    Meet Dr Blood
+                </ButtonLink>
             </Toolbar>
         </AppBar>
     );

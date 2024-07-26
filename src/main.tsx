@@ -1,15 +1,22 @@
-import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { ThemeProvider } from '@emotion/react';
-import { CssBaseline } from '@mui/material';
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router/CustomRouterProvider';
+import React from 'react';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  // <React.StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+// ReactDOM.createRoot(document.getElementById('root')!).render(
+//     <RouterProvider router={router} />
+// );
 
-  // </React.StrictMode>,
+// const root = ReactDOM.createRoot(document.getElementById('root')!).render(
+//     <RouterProvider router={router} />
+// );
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+  // <BrowserRouter>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+  // </BrowserRouter>
 );
+// 

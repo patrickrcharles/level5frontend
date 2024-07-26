@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Stack, styled } from '@mui/material'
+import { Box, Grid, Paper, Stack, styled, Typography } from '@mui/material'
 import { debounce } from 'lodash'
 import React from 'react'
 import ButtonLink from './ButtonLink'
@@ -24,11 +24,14 @@ const ScoresTable = () => {
     console.log(tableData);
   }, [])
   const columns = [
-    { field: 'date', headerName: 'date', flex: 1 }, { field: 'version', headerName: 'version', flex: 1 },
+    { field: 'id', headerName: 'id', flex: 1 }, 
+    { field: 'date', headerName: 'date', flex: 1 }, 
+    { field: 'version', headerName: 'version', flex: 1 },
     { field: 'username', headerName: 'user', flex: 1 },
     { field: 'character', headerName: 'character', flex: 1 },
     { field: 'level', headerName: 'level', flex: 1 },
     { field: 'modeName', headerName: 'mode', flex: 1 },
+    { field: 'totalPoints', headerName: 'points', flex: 1 },
     { field: 'time', headerName: 'time', flex: 1 },
     { field: 'longestShot', headerName: 'longest', flex: 1 },
     { field: 'totalDistance', headerName: 'total distance', flex: 1 },
@@ -51,7 +54,8 @@ const ScoresTable = () => {
     <Paper square={false}>
       <Grid item container xs={12}>
         <Grid item xs={12}>
-          <Box sx={{ height: 600, width: '100%' }}>
+          <Grid><Typography variant='h6'>Level 5 High Scores</Typography></Grid>
+          <Box sx={{ height: 1200, width: '100%' }}>
             <DataGrid
               // autoHeight
               autosizeOnMount
