@@ -54,20 +54,30 @@ export default function Home() {
         {/* <ReactPlayer controls autostart autoPlay url={dbPlay} />
       <ReactPlayer controls autostart autoPlay url={dbFootage} /> */}
       </Grid>
-      <Grid container xs={12}>
+      <Grid item container xs={12}>
         {/* <Grid item xs={1} spacing={0}>
           <Typography> Server Status</Typography>
         </Grid>
         <Grid item xs={1} spacing={2}>
           <Chip label='Down' color="error" />
         </Grid> */}
-
-        <Grid item xs={1} spacing={2}>
-          <Typography> Current Version</Typography>
-        </Grid>
-        <Grid item xs={1} spacing={2}>
-          <Chip label='4.0.0' color="success" />
-        </Grid>
+        {/* <Box
+          sx={{
+            mr: 6,
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'row'
+          }}
+        >
+        </Box>
+        <Grid item container xs={4}>
+          <Grid item xs={3} spacing={1}>
+            <Typography> Current Version</Typography>
+          </Grid>
+          <Grid item xs={2} spacing={1}>
+            <Chip label='4.0.0' color="success" />
+          </Grid>
+        </Grid> */}
       </Grid>
       <Box>
         <ScoresTable />

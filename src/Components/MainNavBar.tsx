@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { Avatar, Box, SxProps, Theme, Typography, useTheme } from '@mui/material';
+import { Avatar, Box, Chip, Grid, SxProps, Table, TableBody, TableCell, tableCellClasses, TableHead, TableRow, Theme, Typography, useTheme } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import DropdownBtn from './DropdownBtn';
@@ -44,23 +44,28 @@ export default function MainNavBar() {
     return (
         <AppBar sx={style}>
             <Toolbar>
-                <Box
-                    sx={{
-                        mr: 2,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        flexDirection: 'row'
-                    }}
-                >
-                </Box>
-                <ButtonLink to="/" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                    Title
-                </ButtonLink>
-                {
+                <Grid item container xs={12}>
+                    <Grid item container xs={6} justifyContent="left" direction="row">
+                        <Box
+                            sx={{
+                                mr: 2,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                flexDirection: 'row'
+                            }}
+                        >
+                        </Box>
+                        <ButtonLink to="/" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                            Title
+                        </ButtonLink>
+                        <ButtonLink to="/level5" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                            Scores
+                        </ButtonLink>
+                        {/* {
                     menus.map((item) => (
                         <DropdownBtn key={uuidv4()} menu={item} sx={{ fontWeight: 'bolder', fontSize: '1.1em' }} />
-                    ))}
-                <ButtonLink to="/modes" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                    ))} */}
+                        {/* <ButtonLink to="/modes" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
                     Modes
                 </ButtonLink>
                 <ButtonLink to="/characters" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
@@ -68,10 +73,28 @@ export default function MainNavBar() {
                 </ButtonLink>
                 <ButtonLink to="/levels" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
                     Levels
-                </ButtonLink>
-                <ButtonLink to="/level5/drblood" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                    Meet Dr Blood
-                </ButtonLink>
+                </ButtonLink> */}
+                        <ButtonLink to="/level5/drblood" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                            Meet Dr Blood
+                        </ButtonLink>
+                    </Grid>
+                    <Grid item container xs={6} justifyContent="right" direction="row">
+                        <Table sx={{
+                            [`& .${tableCellClasses.root}`]: {
+                                borderBottom: "none"
+                            }
+                        }}>
+                            <TableCell align='right'><Typography> Current Version</Typography></TableCell>
+                            <TableCell align='left'><Chip label='4.0.0' color="success" /></TableCell>
+                        </Table>
+                        {/* <Grid item xs={1} spacing={1}>
+                        
+                    </Grid>
+                    <Grid item xs={2} spacing={1}>
+                        
+                    </Grid> */}
+                    </Grid>
+                    </Grid>
             </Toolbar>
         </AppBar>
     );
