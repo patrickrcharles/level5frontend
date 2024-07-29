@@ -5,11 +5,14 @@ import Title from "../Views/Title";
 import Home from "../Views/Home";
 import App from "../App";
 import DrBlood from "../Views/DrBlood";
+import Layout from "../Components/Layout";
 
 export const router = createBrowserRouter([
         {
             path: "/",
-            element: <App/>,
+            element: (
+            <Layout><App/></Layout>
+            ),
             children: [
                 { path: "", element: <Title /> },
                 { path: "/level5", element: <Home /> },

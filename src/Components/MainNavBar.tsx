@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import DropdownBtn from './DropdownBtn';
 import ButtonLink from './ButtonLink';
+import ApplicationApi from '../api/ApplicationApi';
+import { SetStateAction, useEffect, useState } from 'react';
 
 const style: SxProps<Theme> = {
     color: 'text.primary',
@@ -38,9 +40,25 @@ const menus: DropMenuType[] = [
     },
 ];
 
-export default function MainNavBar() {
-    const theme = useTheme();
 
+export default function MainNavBar() {
+    // const theme = useTheme();
+    // const v = ApplicationApi.getCurrentVersion();
+    // const current =  (await v).currentVersion;
+    // console.log("versions", ApplicationApi.getVersions());
+    // console.log("----------- current", v);
+    // let version ='';
+    // const [currentVersion, setCurrentVersion] = useState([]);
+    // // fetch highscores data
+    // useEffect(() => {
+    //     // fetch('http://api.sweatthis.com/api/application/version/current')
+    //     //     .then((data) => data.json())
+    //     //     .then((data) => setCurrentVersion(data))
+
+    //         const data = ApplicationApi.getCurrentVersion();
+    //         // version =  data;
+    //     console.log(data);
+    // }, [])
     return (
         <AppBar sx={style}>
             <Toolbar>
@@ -61,19 +79,6 @@ export default function MainNavBar() {
                         <ButtonLink to="/level5" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
                             Scores
                         </ButtonLink>
-                        {/* {
-                    menus.map((item) => (
-                        <DropdownBtn key={uuidv4()} menu={item} sx={{ fontWeight: 'bolder', fontSize: '1.1em' }} />
-                    ))} */}
-                        {/* <ButtonLink to="/modes" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                    Modes
-                </ButtonLink>
-                <ButtonLink to="/characters" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                    Characters
-                </ButtonLink>
-                <ButtonLink to="/levels" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                    Levels
-                </ButtonLink> */}
                         <ButtonLink to="/level5/drblood" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
                             Meet Dr Blood
                         </ButtonLink>
@@ -84,47 +89,52 @@ export default function MainNavBar() {
                                 borderBottom: "none"
                             }
                         }}>
-                            <TableCell align='right'><Typography> Current Version</Typography></TableCell>
-                            <TableCell align='left'><Chip label='4.0.0' color="success" /></TableCell>
+                            <TableBody
+                            ><TableRow>
+                                    <TableCell align='right'><Typography> Current Version</Typography>
+                                    </TableCell>
+                                    <TableCell align='left'><Chip label='4.0.0' color="success" />
+                                    </TableCell>
+                                    {/* <TableCell align='right'><Typography> Current Version</Typography>
+                                    </TableCell>
+                                    <TableCell align='left'><Chip label={currentVersion} color="success" />
+                                    </TableCell> */}
+                                </TableRow>
+                            </TableBody>
+
                         </Table>
-                        {/* <Grid item xs={1} spacing={1}>
-                        
                     </Grid>
-                    <Grid item xs={2} spacing={1}>
-                        
-                    </Grid> */}
-                    </Grid>
-                    </Grid>
+                </Grid>
             </Toolbar>
         </AppBar>
     );
 }
 
-function stringToColor(string: string) {
-    let hash = 0;
-    let i;
+// function stringToColor(string: string) {
+//     let hash = 0;
+//     let i;
 
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-        hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
+//     /* eslint-disable no-bitwise */
+//     for (i = 0; i < string.length; i += 1) {
+//         hash = string.charCodeAt(i) + ((hash << 5) - hash);
+//     }
 
-    let color = '#';
+//     let color = '#';
 
-    for (i = 0; i < 3; i += 1) {
-        const value = (hash >> (i * 8)) & 0xff;
-        color += `00${value.toString(16)}`.slice(-2);
-    }
-    /* eslint-enable no-bitwise */
+//     for (i = 0; i < 3; i += 1) {
+//         const value = (hash >> (i * 8)) & 0xff;
+//         color += `00${value.toString(16)}`.slice(-2);
+//     }
+//     /* eslint-enable no-bitwise */
 
-    return color;
-}
+//     return color;
+// }
 
-function stringAvatar(name: string) {
-    return {
-        sx: {
-            backgroundColor: stringToColor(name)
-        },
-        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
-    };
-}
+// function stringAvatar(name: string) {
+//     return {
+//         sx: {
+//             backgroundColor: stringToColor(name)
+//         },
+//         children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
+//     };
+// }
