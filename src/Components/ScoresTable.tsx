@@ -26,12 +26,12 @@ const ScoresTable = () => {
     // console.log(tableData);
   }, [])
 
-  useEffect(() => {
-    fetch('http://api.sweatthis.com/api/highscores')
-      .then((data) => data.json())
-      .then((data) => setTableData(data))
-    // console.log(tableData);
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://api.sweatthis.com/api/highscores')
+  //     .then((data) => data.json())
+  //     .then((data) => setTableData(data))
+  //   // console.log(tableData);
+  // }, [])
 
   const columns = [
     { field: 'id', headerName: 'id', flex: 1 },
@@ -90,9 +90,6 @@ const ScoresTable = () => {
 
 export default ScoresTable
 
-function useDemoData(arg0: { dataSet: string; rowLength: number; maxColumns: number }): { data: any } {
-  throw new Error('Function not implemented.')
-}
 function getValueFromValueOptions(value: any) {
   // console.log('value', value);
   // if (value == 1) { console.log("---------------------------hard core found") }
@@ -100,7 +97,7 @@ function getValueFromValueOptions(value: any) {
 }
 
 function getVersusFinishFromValueOptions(row: any) {
-  console.log("row", row);
+  // console.log("row", row);
   // console.log("is winner", row.p1IsCpu);
   // console.log("mode", row.modeid);
   let playerCount = row.numPlayers;

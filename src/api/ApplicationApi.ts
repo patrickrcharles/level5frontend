@@ -18,10 +18,10 @@ class ApplicationApi {
         console.log("getCurrentVersion ");
         const request = new Request('http://api.sweatthis.com/api/application/version/');
         const response = await fetch(request);
-        // console.log("api current1 : ",response);
+        console.log("api current1 : ",response);
         
         var data = await response.json();
-        // console.log("api current2 : ",data[0]);
+        console.log("api current2 : ",data[0].currentVersion);
 
         return data[0].currentVersion;
     }

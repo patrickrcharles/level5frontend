@@ -48,23 +48,24 @@ export default function MainNavBar() {
     // console.log("versions", ApplicationApi.getVersions());
     // console.log("----------- current", v);
     // let version ='';
-    // const [currentVersion, setCurrentVersion] = useState([]);
+    const [currentVersion, setCurrentVersion] = useState([]);
+    const version = ApplicationApi.getCurrentVersion();
     // // fetch highscores data
-    // useEffect(() => {
-    //     // fetch('http://api.sweatthis.com/api/application/version/current')
-    //     //     .then((data) => data.json())
-    //     //     .then((data) => setCurrentVersion(data))
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await ApplicationApi.getCurrentVersion();
+            return data;
+        };
+        fetchData().then((data) => setCurrentVersion(data));
+        // console.log("currentVersion : ",currentVersion);
+    }, []);
 
-    //         const data = ApplicationApi.getCurrentVersion();
-    //         // version =  data;
-    //     console.log(data);
-    // }, [])
     return (
         <AppBar sx={style}>
             <Toolbar>
                 <Grid item container xs={12}>
                     <Grid item container xs={6} justifyContent="left" direction="row">
-                        <Box
+                        {/* <Box
                             sx={{
                                 mr: 2,
                                 display: 'flex',
@@ -72,15 +73,18 @@ export default function MainNavBar() {
                                 flexDirection: 'row'
                             }}
                         >
-                        </Box>
+                        </Box> */}
                         <ButtonLink to="/" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
                             Title
                         </ButtonLink>
                         <ButtonLink to="/level5" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
                             Scores
                         </ButtonLink>
+                        <ButtonLink to="/level5/characters" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
+                            Characters
+                        </ButtonLink>
                         <ButtonLink to="/level5/drblood" sx={{ fontWeight: 'bolder', fontSize: '1.1em' }}>
-                            Meet Dr Blood
+                            Dr Blood
                         </ButtonLink>
                     </Grid>
                     <Grid item container xs={6} justifyContent="right" direction="row">
@@ -93,15 +97,14 @@ export default function MainNavBar() {
                             ><TableRow>
                                     <TableCell align='right'><Typography> Current Version</Typography>
                                     </TableCell>
-                                    <TableCell align='left'><Chip label='4.0.0' color="success" />
-                                    </TableCell>
-                                    {/* <TableCell align='right'><Typography> Current Version</Typography>
-                                    </TableCell>
                                     <TableCell align='left'><Chip label={currentVersion} color="success" />
+                                    </TableCell>
+                                    {/* <TableCell align='right'><Typography> Server Status</Typography>
+                                    </TableCell>
+                                    <TableCell align='left'><Chip label='Online' color="success" />
                                     </TableCell> */}
                                 </TableRow>
                             </TableBody>
-
                         </Table>
                     </Grid>
                 </Grid>

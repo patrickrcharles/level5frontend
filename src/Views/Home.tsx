@@ -50,7 +50,7 @@ export default function Home() {
 
     <>
       <Grid>
-        <MainNavBar />
+        {/* <MainNavBar /> */}
         {/* <ReactPlayer controls autostart autoPlay url={dbPlay} />
       <ReactPlayer controls autostart autoPlay url={dbFootage} /> */}
       </Grid>
