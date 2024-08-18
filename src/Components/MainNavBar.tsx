@@ -97,7 +97,7 @@ export default function MainNavBar() {
                             ><TableRow>
                                     <TableCell align='right'><Typography> Current Version</Typography>
                                     </TableCell>
-                                    <TableCell align='left'><Chip label={currentVersion} color="success" />
+                                    <TableCell align='left'><Chip label={ currentVersion} color={getVersionChip(currentVersion)} />
                                     </TableCell>
                                     {/* <TableCell align='right'><Typography> Server Status</Typography>
                                     </TableCell>
@@ -111,6 +111,14 @@ export default function MainNavBar() {
             </Toolbar>
         </AppBar>
     );
+}
+
+function getVersionChip(version: any ){
+    console.log(version);
+    if(version === "Server Down"){
+        return "error"
+    }
+    return "success";
 }
 
 // function stringToColor(string: string) {
