@@ -1,12 +1,7 @@
-import { Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
-import { GridColDef } from '@mui/x-data-grid';
+import { Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import CharacterCard from './CharacterCard';
-import img_dblood from './images/characters/dblood.png'
-
-
-
 
 export default function Characters() {
 
@@ -20,47 +15,94 @@ export default function Characters() {
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "Dan Russell",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/danrussell.png'
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "???",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/dbloodwhite.png'
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "Evelyn Skeleton",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/eveyln.png'
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "Executioner",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/executioner.png'
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "Jimmy Ford",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/jimmyford.png'
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "Johnny Dracula",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/johnnydracula.png'
       },
       {
         id: 1,
-        name: "Dr Blood",
+        name: "Marion",
         description: "",
-        image: '/images/characters/dblood.png'
+        image: '/images/characters/marion.png'
       },
-      
+      {
+        id: 1,
+        name: "Woody",
+        description: "",
+        image: '/images/characters/woody.png'
+      },
+      {
+        id: 1,
+        name: "Ninja",
+        description: "",
+        image: '/images/characters/ninja.png'
+      },
+      {
+        id: 1,
+        name: "Rad Tony",
+        description: "",
+        image: '/images/characters/radtony.png'
+      },
+      {
+        id: 1,
+        name: "Thom",
+        description: "",
+        image: '/images/characters/thom.png'
+      },
+      {
+        id: 1,
+        name: "Wizard",
+        description: "",
+        image: '/images/characters/wizard.png'
+      },
+      // {
+      //   id: 1,
+      //   name: "Dr Blood",
+      //   description: "",
+      //   image: '/images/characters/dblood.png'
+      // },
+      // {
+      //   id: 1,
+      //   name: "Dr Blood",
+      //   description: "",
+      //   image: '/images/characters/dblood.png'
+      // },
+      // {
+      //   id: 1,
+      //   name: "Dr Blood",
+      //   description: "",
+      //   image: '/images/characters/dblood.png'
+      // },
       
     ]
 
