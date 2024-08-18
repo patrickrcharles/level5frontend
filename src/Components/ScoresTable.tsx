@@ -23,7 +23,6 @@ const ScoresTable = () => {
     fetch('http://api.sweatthis.com/api/highscores')
       .then((data) => data.json())
       .then((data) => setTableData(data))
-    // console.log(tableData);
   }, [])
 
   // useEffect(() => {
