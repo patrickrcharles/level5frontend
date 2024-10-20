@@ -97,12 +97,13 @@ export default function MainNavBar() {
                             ><TableRow>
                                     <TableCell align='right'><Typography> Current Version</Typography>
                                     </TableCell>
-                                    <TableCell align='left'><Chip label={ currentVersion} color={getVersionChip(currentVersion)} />
+                                    <TableCell align='left'>
+                                        <Chip label={currentVersion} color={getVersionChip(currentVersion)} />
                                     </TableCell>
-                                    {/* <TableCell align='right'><Typography> Server Status</Typography>
+                                    <TableCell align='right'><Typography> Server Status</Typography>
                                     </TableCell>
-                                    <TableCell align='left'><Chip label='Online' color="success" />
-                                    </TableCell> */}
+                                    <TableCell align='left'><Chip label={getServerChip(currentVersion)} color={getVersionChip(currentVersion)} />
+                                    </TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
@@ -113,10 +114,18 @@ export default function MainNavBar() {
     );
 }
 
-function getVersionChip(version: any ){
+function getVersionChip(version: any) {
     console.log(version);
-    if(version === "Server Down"){
+    if (version === "Server Down") {
         return "error"
     }
     return "success";
+}
+
+function getServerChip(version: any) {
+    console.log(version);
+    if (version === "Server Down") {
+        return "Offline"
+    }
+    return "Online";
 }
