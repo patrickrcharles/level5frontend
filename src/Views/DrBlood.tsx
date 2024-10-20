@@ -2,9 +2,6 @@ import { Grid } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import HighScoreApi from '../api/HighScoreApi';
-import ReactPlayer from 'react-player';
-import dbPlay from '/video/db_playGame.mp4';
-import dbFootage from '/video/db_footage.mp4';
 import YouTube from 'react-youtube';
 
 export default function DrBlood() {
